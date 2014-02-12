@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012-2013 The CyanogenMod Project
+<!-- Copyright (C) 2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,63 +13,27 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string-array name="wifi_countrycode_entries">
-        <item>USA</item>
-        <item>Canada, Taiwan</item>
-        <item>Tyskland</item>
-        <item>Europa</item>
-        <item>Japan, Rusland</item>
-        <item>Australien</item>
-        <item>Kina</item>
-        <item>Korea</item>
-        <item>Tyrkiet</item>
-        <item>Singapore</item>
-        <item>Brasilien</item>
+    <!-- Mobile network settings, network mode choices for a device supporting GSM and LTE [CHAR LIMIT=25] -->
+    <string-array name="preferred_network_mode_choices_lte_gsm">
+        <item>LTE/WCDMA</item>
+        <item>LTE/GSM/WCDMA</item>
+        <item>GSM/WCDMA foretrukket</item>
     </string-array>
-    <string-array name="volume_overlay_entries">
-        <item>Enkel</item>
-        <item>Udvidelig</item>
-        <item>Udvidet</item>
-        <item>Ingen</item>
+
+    <!-- Entries listed in the setting for the flip action. -->
+    <string-array name="flip_action_setting_entries">
+        <item>Gøre ingenting</item>
+        <item>Slukke ringetone</item>
+        <item>Afvis opkald</item>
     </string-array>
-    <string-array name="pref_zram_size_entries">
-        <item>Slået fra</item>
-        <item>10%</item>
-        <item>18% (standard)</item>
-        <item>26%</item>
-    </string-array>
-    <string-array name="profile_entries">
-        <item>Til</item>
-        <item>Fra</item>
-        <item>Tilsidesæt ikke</item>
-    </string-array>
-    <string-array name="profile_connection_entries">
-        <item>Slå fra</item>
-        <item>Slå til</item>
-    </string-array>
-    <string-array name="entries_network_widget">
-        <item>2G/3G+2G</item>
-        <item>2G/Kun 3G</item>
-        <item>2G/Kun 3G/3G+2G</item>
-    </string-array>
-    <string-array name="entries_screentimeout_widget">
-        <item>15s | 1m | 5m</item>
-        <item>30s | 2m | 5m</item>
-    </string-array>
-    <string-array name="entries_flash_widget">
-        <item>Normal</item>
-        <item>Høj</item>
-    </string-array>
-    <string-array name="haptic_feedback_entries">
-        <item>Brug global indstilling</item>
-        <item>Til</item>
-        <item>Fra</item>
-    </string-array>
-    <string-array name="entries_status_bar_am_pm">
-        <item>Normal</item>
-        <item>Lille</item>
-        <item>Ingen</item>
+
+    <!-- Summary texts for flip action. Must be ordered by numerical
+         value (do nothing = 0, mute = 1, dismiss = 2) -->
+    <string-array name="flip_action_summary_entries">
+        <item>gøre ingenting</item>
+        <item>slukke ringetonen</item>
+        <item>afvise opkaldet</item>
     </string-array>
 </resources>
-

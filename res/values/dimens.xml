@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2009 The Android Open Source Project
+<!-- Copyright (C) 2011 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,50 +15,84 @@
 -->
 
 <resources>
-    <dimen name="device_memory_usage_button_width">16dip</dimen>
-    <dimen name="device_memory_usage_button_height">32dip</dimen>
-    <dimen name="action_bar_switch_padding">16dip</dimen>
+    <!-- Dimensions for CallCard elements (the normal in-call UI) -->
 
-    <dimen name="app_icon_size">56dip</dimen>
-    <dimen name="screen_margin_sides">64dip</dimen>
-    <dimen name="screen_margin_top">72dip</dimen>
-    <dimen name="screen_margin_bottom">48dip</dimen>
-    <dimen name="content_margin_left">16dip</dimen>
-    <dimen name="description_margin_top">26dip</dimen>
-    <dimen name="description_margin_sides">40dip</dimen>
-    <dimen name="bind_app_widget_dialog_checkbox_bottom_padding">16dip</dimen>
-    <dimen name="installed_app_details_bullet_offset">8dip</dimen>
+    <!-- Height of the "call banner" overlay on top of the upper part of
+         the call info area. -->
+    <dimen name="call_banner_height">80dp</dimen>
 
-    <dimen name="data_usage_chart_height">252dip</dimen>
-    <dimen name="data_usage_chart_optimalWidth">440dip</dimen>
-    <dimen name="shortcut_picker_left_padding">70dip</dimen>
-    <dimen name="volume_seekbar_side_margin">8dip</dimen>
+    <!-- Margin between the bottom of the "call card" photo
+         and the top of the in-call button cluster. -->
+    <dimen name="in_call_touch_ui_upper_margin">2dp</dimen>
 
-    <dimen name="crypt_clock_size">100sp</dimen>
+    <!-- Padding at the left and right edges of the "call banner". -->
+    <dimen name="call_banner_side_padding">24dp</dimen>
+    <!-- Padding at the top and bottom edges of the "call banner". -->
+    <dimen name="call_banner_top_bottom_padding">16dp</dimen>
 
-    <item type="dimen" name="setup_title_height">15%</item>
-    <item type="dimen" name="setup_border_width">5%</item>
-    <dimen name="setup_margin_bottom">0dip</dimen>
-    <dimen name="setup_title_size">25sp</dimen>
-    <dimen name="setup_button_size">32dip</dimen>
-    <dimen name="setup_item_margin">16dip</dimen>
+    <!-- Padding at the top and bottom edges of the "provider information" -->
+    <dimen name="provider_info_top_bottom_padding">8dp</dimen>
 
-    <dimen name="divider_height">3dip</dimen>
-    <dimen name="divider_margin_top">6dip</dimen>
-    <dimen name="divider_margin_bottom">7dip</dimen>
+    <!-- Right padding for name and number fields in the call banner.
+         This padding is used to ensure that ultra-long names or
+         numbers won't overlap the elapsed time indication. -->
+    <dimen name="call_banner_name_number_right_padding">50sp</dimen>
 
-    <!--  Size of icons in the top-level of settings  -->
-    <dimen name="header_icon_width">28dp</dimen>
-    <dimen name="appwidget_min_width">260dip</dimen>
-    <dimen name="appwidget_min_height">40dip</dimen>
+    <!-- Height of the main row of in-call buttons. -->
+    <dimen name="in_call_button_height">76dp</dimen>
 
-    <dimen name="pager_tabs_padding">0dp</dimen>
+    <!-- Height of the in-call "End" button. Match with Contact's dimens/call_button_height -->
+    <dimen name="in_call_end_button_height">74dp</dimen>
 
-    <!-- Size of AppWidget previews in KeyguardAppWidgetPickActivity -->
-    <dimen name="appwidget_preview_width">140dip</dimen>
-    <dimen name="appwidget_preview_height">80dip</dimen>
-    <dimen name="keyguard_appwidget_picker_max_width">800dip</dimen>
-    <dimen name="keyguard_appwidget_picker_margin_left">6dip</dimen>
-    <dimen name="keyguard_appwidget_picker_margin_right">6dip</dimen>
-    <integer name="keyguard_appwidget_picker_cols">1</integer>
+    <!-- Width of buttons in the extra button row. -->
+    <dimen name="extra_row_button_width">56dp</dimen>
+
+    <!-- Height of buttons in the extra button row. -->
+    <dimen name="extra_row_button_height">@dimen/in_call_button_height</dimen>
+
+    <!-- Padding at the left and right edges of the incall_touch_ui button
+         cluster.  This padding is necessary because we can't allow the
+         buttons to be very close to the edges of the screen, due to the
+         risk of false touches (from your finger wrapping around while
+         holding the phone, *before* moving it up to your face and having
+         the prox sensor kick in.) -->
+    <dimen name="button_cluster_side_padding">20dp</dimen>
+
+
+    <!-- Dimensions for OTA Call Card -->
+    <dimen name="otaactivate_layout_marginTop">10dp</dimen>
+    <dimen name="otalistenprogress_layout_marginTop">5dp</dimen>
+    <dimen name="otasuccessfail_layout_marginTop">10dp</dimen>
+
+
+    <!-- Dimensions for Emergency Dialer and dialpad inside the in-call screen -->
+    <dimen name="dialpad_horizontal_margin">4dp</dimen>
+    <dimen name="dialpad_vertical_margin">2dp</dimen>
+    <dimen name="dialpad_digits_text_size">35sp</dimen>
+
+    <!-- Just used in landscape mode -->
+    <dimen name="emergency_dialer_digits_height">0px</dimen>
+    <dimen name="dialpad_center_margin">3dp</dimen>
+    <dimen name="dialpad_button_margin">3dp</dimen>
+
+
+    <!-- Layout weight values for dialpad screen. These layouts will be used in one
+         LinearLayout (dialpad_fragment.xml), configuring dialpad screen's vertical
+         ratio. -->
+    <integer name="dialpad_layout_weight_digits">20</integer>
+    <integer name="dialpad_layout_weight_dialpad">65</integer>
+    <integer name="dialpad_layout_weight_additional_buttons">15</integer>
+
+    <!-- Dimension used to possibly down-scale high-res photo into what is suitable
+         for notification's large icon. -->
+    <dimen name="notification_icon_size">64dp</dimen>
+
+    <!-- Circle size for incoming call widget's each item. -->
+    <dimen name="incoming_call_widget_circle_size">94dp</dimen>
+    <!-- Margin used for incoming call widget's icon for each item.
+         This should be same as "(incoming_call_widget_circle_size - icon_size)/2".
+         Right now answer/decline/reject icons have 38dp width/height.
+         So, (94 - 38)/2 ==> 28dp -->
+    <dimen name="incoming_call_widget_asset_margin">28dp</dimen>
+
 </resources>

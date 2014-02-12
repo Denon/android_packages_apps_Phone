@@ -15,52 +15,53 @@
 -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.settings.tests">
+    package="com.android.phone.tests">
 
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.PERFORM_CDMA_PROVISIONING" />
 
-    <application>
+    <application android:label="@string/app_name">
         <uses-library android:name="android.test.runner" />
-        <activity android:name="BluetoothRequestPermissionTest"
-            android:label="Bluetooth Perm Test" >
+
+        <!-- Miscellaneous phone app-related test activities -->
+
+        <!-- Test activity that mimics the behavior of 3rd party apps
+             firing off CALL and DIAL intents. -->
+        <!-- To run:
+                adb shell am start -n com.android.phone.tests/.CallDialTest
+        -->
+        <activity android:name="CallDialTest"
+                  android:label="@string/callDialTestLabel">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="Operator" android:label="Operator Hook Test" >
+
+        <!-- Test activity mimicking the PERFORM_CDMA_PROVISIONING behavior of
+             SetupWizard, useful for testing "non-interactive" OTASP. -->
+        <activity android:name="OtaspTestActivity"
+                  android:label="OtaspTest">
             <intent-filter>
-                <action android:name="com.android.settings.OPERATOR_APPLICATION_SETTING" />
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            <meta-data android:name="com.android.settings.title" android:resource="@string/operator_settings_title" />
-            <meta-data android:name="com.android.settings.summary" android:resource="@string/operator_settings_summary" />
-            <meta-data android:name="com.android.settings.icon" android:resource="@drawable/ic_settings_applications" />
         </activity>
-        <activity android:name="Manufacturer" android:label="Manufacturer Hook Test" >
-            <intent-filter>
-                <action android:name="com.android.settings.MANUFACTURER_APPLICATION_SETTING" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.title" android:resource="@string/manufacturer_settings_title" />
-            <meta-data android:name="com.android.settings.summary" android:resource="@string/manufacturer_settings_summary" />
-            <meta-data android:name="com.android.settings.icon" android:resource="@drawable/ic_settings_applications" />
-        </activity>
+
     </application>
 
+    <!--
+        The prefered way is to use 'runtest':
+           runtest phone-unit
+
+         runtest is a wrapper around 'adb shell'. The low level shell command is:
+           adb shell am instrument -w com.android.phone.tests/android.test.InstrumentationTestRunner
+
+         To run a single test case:
+           adb shell am instrument -w com.android.phone.tests/android.test.InstrumentationTestRunner
+                                   -e com.android.phone.unit.FooUnitTest
+    -->
     <instrumentation android:name="android.test.InstrumentationTestRunner"
-        android:targetPackage="com.android.settings"
-        android:label="Settings App Tests">
-    </instrumentation>
-
-    <instrumentation android:name="SettingsLaunchPerformance"
-        android:targetPackage="com.android.settings"
-        android:label="Settings Launch Performance">
-    </instrumentation>
-
-    <instrumentation android:name="android.test.InstrumentationTestRunner"
-        android:targetPackage="com.android.settings"
-        android:label="Settings Test Cases">
-    </instrumentation>
-
+        android:targetPackage="com.android.phone"
+        android:label="Phone application tests." />
 </manifest>

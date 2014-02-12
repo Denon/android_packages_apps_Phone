@@ -15,7 +15,17 @@
 -->
 
 <resources>
-    <style name="KeyguardAppWidgetItem">
-        <item name="android:textSize">16sp</item>
+    <style name="PrimaryCallInfoPrimaryCallBanner">
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+    <style name="PrimaryCallInfoSecondaryInfoContainer">
+        <item name="android:layout_above">@id/primary_call_banner</item>
+    </style>
+
+    <style name="SecondaryCallInfoSecondaryCallName">
+        <item name="android:layout_gravity">bottom|left</item>
+    </style>
+    <style name="SecondaryCallInfoSecondaryCallStatus">
+        <item name="android:layout_gravity">bottom|right</item>
     </style>
 </resources>

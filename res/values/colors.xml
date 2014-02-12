@@ -15,31 +15,22 @@
 -->
 
 <resources>
-    <color name="black">#000</color>
-    <color name="red">#F00</color>
 
-    <color name="memory_used">#F00</color>
-    <color name="memory_avail">#333333</color>
-    <color name="memory_apps_usage">#77831A</color>
-    <color name="memory_downloads">#476093</color>
-    <color name="memory_dcim">#793A7F</color>
-    <color name="memory_music">#8E562A</color>
-    <color name="memory_cache">#479392</color>
-    <color name="memory_misc">#7C3030</color>
-    <color name="memory_user_light">#479392</color>
-    <color name="memory_user_dark">#316665</color>
+    <!-- In-call UI -->
+    <color name="incall_callTypeSip">#99CE3F</color> <!-- green -->
+    <color name="incall_call_banner_background">#A0000000</color> <!-- semitransparent black -->
+    <color name="incall_secondary_info_background">#8033b5e5</color> <!-- semitransparent blueish grey -->
+    <color name="incall_call_banner_text_color">#FFFFFF</color> <!-- white -->
 
-    <color name="crypt_keeper_clock_background">#ff9a9a9a</color>
-    <color name="crypt_keeper_clock_foreground">#ff666666</color>
-    <color name="crypt_keeper_clock_am_pm">#ff9a9a9a</color>
+    <!-- DTMF Dialer -->
+    <color name="dtmf_dialer_display_text">#FFFFFF</color> <!-- white -->
 
-    <color name="divider_color">#20ffffff</color>
-    <color name="title_color">@android:color/holo_blue_light</color>
-    <color name="setup_divider_color">#333333</color>
+    <!-- Color of the theme of the People app -->
+    <color name="people_app_theme_color">#33B5E5</color>
 
-    <color name="auto_brightness_preview_background">@android:color/black</color>
-    <color name="auto_brightness_preview_foreground">@android:color/white</color>
-    <color name="auto_brightness_preview_markers">@android:color/holo_blue_light</color>
-    <color name="auto_brightness_preview_grid">#44ffffff</color>
+    <!-- Put on top of each photo, implying 80% darker than usual. -->
+    <color name="on_hold_dim_effect">#cc000000</color>
 
+    <!-- Used with some smaller texts in manage conference screen. -->
+    <color name="manage_conference_secondary_text_color">#888888</color>
 </resources>

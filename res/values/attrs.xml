@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2008 The Android Open Source Project
+<!-- Copyright (C) 2006 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-
+  
           http://www.apache.org/licenses/LICENSE-2.0
-
+  
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -15,81 +15,38 @@
 -->
 
 <resources>
-    <declare-styleable name="WifiEncryptionState">
-        <attr name="state_encrypted" format="boolean" />
-    </declare-styleable>
-    <declare-styleable name="IconPreferenceScreen">
-        <attr name="icon" format="reference" />
-    </declare-styleable>
-    
-    <declare-styleable name="BatteryHistoryChart">
-        <!-- Base text color, typeface, size, and style. -->
-        <attr name="android:textAppearance" />
-        <!-- Text color. -->
-        <attr name="android:textColor" />
-        <!-- Size of the text. Recommended dimension type for text is "sp" for scaled-pixels (example: 15sp). -->
-        <attr name="android:textSize" />
-        <!-- Typeface (normal, sans, serif, monospace) for the text. -->
-        <attr name="android:typeface" />
-        <!-- Style (bold, italic, bolditalic) for the text. -->
-        <attr name="android:textStyle" />
-        <!-- Place a shadow of the specified color behind the text. -->
-        <attr name="android:shadowColor" />
-        <!-- Horizontal offset of the shadow. -->
-        <attr name="android:shadowDx" />
-        <!-- Vertical offset of the shadow. -->
-        <attr name="android:shadowDy" />
-        <!-- Radius of the shadow. -->
-        <attr name="android:shadowRadius" />
-    </declare-styleable>
-
-    <declare-styleable name="PercentageBarChart">
-        <!-- Background color -->
-        <attr name="emptyColor" format="color" />
-        <!-- Minimum tick width for each slice in the bar chart. -->
-        <attr name="minTickWidth" format="dimension" />
-    </declare-styleable>
-
-    <declare-styleable name="ChartView">
-        <!-- optimal width of the chart -->
-        <attr name="optimalWidth" format="dimension" />
-        <!-- how to weight extra space beyond optimal width -->
-        <attr name="optimalWidthWeight" format="float" />
-    </declare-styleable>
-
-    <declare-styleable name="ChartSweepView">
-        <attr name="sweepDrawable" format="reference" />
-        <attr name="followAxis">
-            <enum name="horizontal" value="0" />
-            <enum name="vertical" value="1" />
+    <declare-styleable name="EditPhoneNumberPreference">
+        <!-- The enable button text. -->
+        <attr name="enableButtonText" format="string" />
+        <!-- The disable button text. -->
+        <attr name="disableButtonText" format="string" />
+        <!-- The change / update button text. -->
+        <attr name="changeNumButtonText" format="string" />
+        <!-- The confirm button mode. -->
+        <attr name="confirmMode">
+            <!-- Traditional single action "ok" button. -->
+            <enum name="confirm" value="0" />
+            <!-- Two state "enable/disable" button. -->
+            <enum name="activation" value="1" />
         </attr>
-        <attr name="neighborMargin" format="dimension" />
-        <attr name="labelSize" format="dimension" />
-        <attr name="labelTemplate" format="reference" />
-        <attr name="labelColor" format="color" />
     </declare-styleable>
 
-    <declare-styleable name="ChartGridView">
-        <attr name="primaryDrawable" format="reference" />
-        <attr name="secondaryDrawable" format="reference" />
-        <attr name="borderDrawable" format="reference" />
-        <attr name="labelColor" />
-    </declare-styleable>
-
-    <declare-styleable name="ChartNetworkSeriesView">
-        <attr name="strokeColor" format="color" />
-        <attr name="fillColor" format="color" />
-        <attr name="fillColorSecondary" format="color" />
-    </declare-styleable>
-
-    <declare-styleable name="CubicSplinePreviewView">
-        <attr name="backgroundColor" format="color" />
-        <attr name="foregroundColor" format="color" />
-        <attr name="gridColor" format="color" />
-        <attr name="markerColor" format="color" />
-        <attr name="textSize" format="dimension" />
-        <attr name="strokeWidth" format="dimension" />
-        <attr name="markerSize" format="dimension" />
-        <attr name="margin" format="dimension" />
+    <declare-styleable name="CallForwardEditPreference">
+        <attr name="serviceClass">
+            <!-- voice -->
+            <enum name="voice" value="1" />
+            <!-- data -->
+            <enum name="data" value="2" />
+        </attr>
+        <attr name="reason">
+            <!-- unconditional  -->
+            <enum name="unconditional" value="0" />
+            <!-- busy -->
+            <enum name="busy" value="1" />
+            <!-- no_reply -->
+            <enum name="no_reply" value="2" />
+            <!-- not_reachable -->
+            <enum name="not_reachable" value="3" />
+        </attr>
     </declare-styleable>
 </resources>

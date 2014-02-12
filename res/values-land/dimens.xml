@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2009 The Android Open Source Project
+<!-- Copyright (C) 2011 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,13 +13,9 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
 <resources>
-    <dimen name="appwidget_width">421dip</dimen>
-    <dimen name="appwidget_height">68dip</dimen>
-    <dimen name="appwidget_preview_width">120dip</dimen>
-    <dimen name="appwidget_preview_height">70dip</dimen>
-    <dimen name="keyguard_appwidget_picker_margin_left">2dip</dimen>
-    <dimen name="keyguard_appwidget_picker_margin_right">2dip</dimen>
-    <integer name="keyguard_appwidget_picker_cols">2</integer>
+    <dimen name="emergency_dialer_digits_height">66dip</dimen>
+
+    <!-- Height of the "call banner" overlay on bottom of the call_card -->
+    <dimen name="call_banner_height">@dimen/in_call_end_button_height</dimen>
 </resources>

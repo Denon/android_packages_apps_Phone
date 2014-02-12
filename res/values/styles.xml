@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2006 The Android Open Source Project
+<!-- Copyright (C) 2007 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,47 +15,35 @@
 -->
 
 <resources>
+    <drawable name="grayBg">#FF333333</drawable>
+
+    <style name="IccPanel">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@drawable/grayBg</item>
+    </style>
 
     <style name="info_label">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textAppearance">@style/TextAppearance.info_label</item>
-        <item name="android:paddingEnd">4dip</item>
-    </style>
-
-    <style name="info_value">
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:textAppearance">@style/TextAppearance.info_value</item>
-    </style>
-
-    <style name="info_small">
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:textAppearance">@style/TextAppearance.info_small</item>
+        <item name="android:paddingRight">4dip</item>
     </style>
 
     <style name="info_layout">
         <item name="android:orientation">vertical</item>
-        <item name="android:paddingStart">10dip</item>
+        <item name="android:paddingLeft">10dip</item>
         <item name="android:paddingTop">10dip</item>
-        <item name="android:paddingEnd">10dip</item>
+        <item name="android:paddingRight">10dip</item>
         <item name="android:paddingBottom">10dip</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
     </style>
 
     <style name="entry_layout">
-        <item name="android:orientation">horizontal</item>
+        <item name="android:orientation">vertical</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
-
-    <style name="form_value">
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">match_parent</item>
-    </style>
-
 
     <style name="TextAppearance" parent="android:TextAppearance">
     </style>
@@ -65,140 +53,203 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="TextAppearance.info_small">
-        <item name="android:textSize">12sp</item>
-        <item name="android:textStyle">normal</item>
+    <!-- Preference Style for the phone number preferences -->
+    <style name="EditPhoneNumberPreference">
+        <item name="enableButtonText">@string/enable</item>
+        <item name="disableButtonText">@string/disable</item>
+        <item name="changeNumButtonText">@string/change_num</item>
+        <item name="confirmMode">activation</item>
     </style>
 
-    <style name="TextAppearance.info_value">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textStyle">normal</item>
-    </style>
-
-    <style name="TallTitleBarTheme" parent="android:Theme.NoTitleBar">
-        <item name="android:windowContentOverlay">@null</item>
-    </style>
-
-    <style name="Theme.CreateShortCut" parent="android:Theme.Holo.DialogWhenLarge">
-    </style>
-
-    <style name="setup_wizard_theme" parent="android:Theme.Holo.NoActionBar">
-        <item name="android:windowSoftInputMode">adjustPan</item>
-        <item name="@*android:preferencePanelStyle">@*android:style/PreferencePanel.Dialog</item>
-    </style>
-
-    <!-- We'd like to have this as 16dip hight including paddingTop/paddingBottom to
-         be consistent with ProgressBar -->
-    <style name="TopDivider">
+    <!-- OTA Call Card styles -->
+    <style name="ccOtaButtonBar">
+        <!-- TODO: change height to 'wrap_content' when layout bug is fixed -->
+        <item name="android:layout_height">60dip</item> 
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/divider_height</item>
-        <item name="android:background">@color/setup_divider_color</item>
-        <item name="android:focusable">false</item>
-        <item name="android:clickable">false</item>
-        <item name="android:layout_marginTop">@dimen/divider_margin_top</item>
-        <item name="android:layout_marginBottom">@dimen/divider_margin_bottom</item>
+        <item name="android:background">@android:drawable/bottom_bar</item>
     </style>
 
-    <style name="SetupTitle">
-        <item name="android:fontFamily">sans-serif-light</item>
-        <item name="android:textSize">@dimen/setup_title_size</item>
-        <item name="android:textColor">@color/title_color</item>
-        <item name="android:clickable">false</item>
-        <item name="android:longClickable">false</item>
-    </style>
-
-    <style name="wifi_item">
-        <item name="android:layout_width">match_parent</item>
+    <style name="ccOtaButton">
+        <item name="android:layout_width">150dip</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">8dip</item>
-        <item name="android:layout_marginStart">16dip</item>
-        <item name="android:layout_marginEnd">16dip</item>
-        <item name="android:orientation">vertical</item>
-        <item name="android:gravity">start</item>
+        <item name="android:layout_marginTop">5dip</item>
+        <item name="android:layout_marginBottom">5dip</item>
     </style>
 
-    <style name="wifi_item_label">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">14sp</item>
+    <style name="ccOtaNextButton" parent="ccOtaButton">
+        <!-- <item name="android:drawableRight">@drawable/ic_btn_next</item>
+             <item name="android:drawablePadding">10dip</item>
+          -->
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_marginRight">4dip</item>
     </style>
 
-    <style name="wifi_item_content">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">18sp</item>
+    <style name="ccOtaSkipButton" parent="ccOtaButton">
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_marginLeft">4dip</item>
     </style>
 
-    <style name="wifi_section">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:orientation">vertical</item>
+    <style name="ccOtaWizardTitle">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/ota_title_color</item>
     </style>
 
-    <style name="setup_wizard_button">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
+    <style name="ccOtaTextPrimary">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textSize">17sp</item>
     </style>
 
-    <style name="Transparent">
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowIsFloating">true</item>
-    </style>
-
-    <style name="CryptKeeperBlankTheme" parent="@android:style/Theme.Holo.NoActionBar">
-        <item name="android:background">#ff000000</item>
-    </style>
-
-    <style name="SecurityPreferenceButtonContainer" parent="@android:style/Holo.SegmentedButton">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:weightSum">2</item>
-        <item name="android:dividerPadding">8dip</item>
-    </style>
-
-    <style name="SecurityPreferenceButton" parent="@android:style/Widget.Holo.Button.Borderless">
-        <item name="android:layout_width">0dip</item>
+    <!-- Buttons in the main "button row" of the in-call onscreen touch UI. -->
+    <style name="InCallButton">
+        <item name="android:layout_width">0px</item>
+        <item name="android:layout_height">@dimen/in_call_button_height</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:ellipsize">marquee</item>
-        <item name="android:singleLine">true</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
     </style>
 
-    <style name="vpn_label">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+    <!-- "Compound button" variation of InCallButton.
+         These buttons have the concept of two states: checked and unchecked.
+         (This style is just like "InCallButton" except that we also
+         clear out android:textOn and android:textOff, to avoid the default
+         text label behavior of the ToggleButton class.) -->
+    <style name="InCallCompoundButton" parent="InCallButton">
+        <item name="android:textOn">@null</item>
+        <item name="android:textOff">@null</item>
+    </style>
+
+    <style name="VerticalSeparator">
+        <item name="android:layout_width">2dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@android:color/black</item>
+    </style>
+
+    <!-- "End" button; similar to InCallButton. -->
+    <style name="InCallEndButton">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">@dimen/in_call_end_button_height</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <!-- Buttons in extra button row. -->
+    <style name="InCallExtraRowButton">
+        <item name="android:layout_width">@dimen/extra_row_button_width</item>
+        <item name="android:layout_height">@dimen/extra_row_button_height</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <!-- Text label drawn alongside buttons in the "extra button row" of
+         the in-call onscreen touch UI. -->
+    <style name="InCallExtraRowButtonLabel">
         <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
-    </style>
-
-    <style name="vpn_value">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
-        <item name="android:singleLine">true</item>
-    </style>
-
-    <style name="InputMethodPreferenceStyle">
-        <item name="android:layout">@layout/preference_inputmethod</item>
-        <item name="android:widgetLayout">@layout/preference_inputmethod_widget</item>
-    </style>
-
-    <style name="TextAppearance.Switch" parent="@*android:style/TextAppearance.Holo.Widget.Switch">
-        <item name="android:textAllCaps">true</item>
-    </style>
-
-    <style name="TextAppearance.PagerTabs" parent="@android:style/TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">@color/incall_call_banner_text_color</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginLeft">5dip</item>
+        <item name="android:layout_marginRight">5dip</item>
     </style>
 
-    <style name="KeyguardAppWidgetItem">
-        <item name="android:textSize">18sp</item>
+    <!-- Theme for the activity com.android.phone.Settings, which is the
+         "Mobile network settings" screen (used on non-voice-capable
+         tablets as well as regular phone devices.) -->
+    <style name="Theme.Settings" parent="@android:style/Theme.Holo.DialogWhenLarge">
+        <item name="android:windowCloseOnTouchOutside">true</item>
     </style>
 
-    <style name="ProfilesPreferenceStyle">
-        <item name="android:layout">@layout/preference_profiles</item>
-        <item name="android:widgetLayout">@layout/preference_profiles_widget</item>
+    <style name="InCallAnimationStyle" parent="@*android:style/Animation.Holo.Activity">
+        <!-- Suppress task-to-task animation happening during the transition from
+             OutgoingCallBroadcaster (and SipOptionHandler) to InCallScreen.
+             The transition unexpectedly happens during the transition (inside the phone task),
+             because InCallScreen is using android:launchMode="singleInstance".
+
+             - taskOpenEnterAnimation/taskOpenExitAnimation is used for the first time
+               InCallScreen instance is created.
+
+             - taskToFrontEnterAnimation/taskToFrontExitAnimation is used when InCallScreen
+               is already available.
+               (Note that InCallScreen won't be destroyed once it is created)
+
+             TODO: try removing the flag instead -->
+        <item name="*android:taskOpenEnterAnimation">@*android:anim/activity_open_enter</item>
+        <item name="*android:taskOpenExitAnimation">@*android:anim/activity_open_exit</item>
+        <item name="*android:taskToFrontEnterAnimation">@*android:anim/activity_open_enter</item>
+        <item name="*android:taskToFrontExitAnimation">@*android:anim/activity_open_exit</item>
     </style>
 
+    <style name="OutgoingAnimationStyle" parent="@*android:style/Animation.Holo.Activity">
+        <!-- Suppress task-to-task transition animation happening from
+             DialtactsActivity to OutgoingCallBroadcaster. -->
+        <item name="*android:taskOpenEnterAnimation">@*android:anim/activity_open_enter</item>
+        <item name="*android:taskOpenExitAnimation">@*android:anim/activity_open_exit</item>
+    </style>
+
+    <!-- Theme for the InCallScreen activity.  This gives us a totally black
+         window background instead of the default dark grey.  (We don't just use
+         Theme.Black.NoTitleBar directly, since we want any popups or dialogs
+         from the InCallScreen to have the correct holo style. -->
+    <style name="Theme.InCallScreen" parent="@android:style/Theme.Holo.NoActionBar">
+        <item name="android:windowBackground">@android:color/black</item>
+
+        <item name="*android:windowAnimationStyle">@style/InCallAnimationStyle</item>
+    </style>
+
+    <style name="DialpadButtonStyle">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:soundEffectsEnabled">false</item>
+    </style>
+
+    <style name="ContactsActionBarStyle"
+           parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/people_app_theme_color</item>
+        <item name="android:backgroundStacked">@color/people_app_theme_color</item>
+    </style>
+
+    <style name="SimImportTheme"
+           parent="@android:style/Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/ContactsActionBarStyle</item>
+    </style>
+
+    <style name="EmergencyDialerTheme" parent="@android:style/Theme.Holo">
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
+
+    <style name="OutgoingCallBroadcasterTheme" parent="@android:style/Theme.Holo.NoActionBar">
+        <item name="android:windowBackground">@android:color/black</item>
+
+        <item name="*android:windowAnimationStyle">@style/OutgoingAnimationStyle</item>
+    </style>
+
+    <style name="SipCallOptionHandlerTheme" parent="@android:style/Theme.Holo.NoActionBar">
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
+
+    <style name="DialtactsDigitsTextAppearance">
+        <item name="android:maxLines">1</item>
+        <item name="android:textSize">@dimen/dialpad_digits_text_size</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:freezesText">true</item>
+        <item name="android:editable">true</item>
+        <item name="android:cursorVisible">false</item>
+    </style>
+
+    <style name="PrimaryCallInfoPrimaryCallBanner">
+        <item name="android:layout_alignParentTop">true</item>
+    </style>
+    <style name="PrimaryCallInfoSecondaryInfoContainer">
+        <item name="android:layout_below">@id/primary_call_banner</item>
+    </style>
+
+    <style name="SecondaryCallInfoSecondaryCallName">
+        <item name="android:layout_gravity">top|left</item>
+    </style>
+    <style name="SecondaryCallInfoSecondaryCallStatus">
+        <item name="android:layout_gravity">top|right</item>
+    </style>
 </resources>

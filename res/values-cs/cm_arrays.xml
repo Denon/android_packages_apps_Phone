@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012-2013 The CyanogenMod Project
+<!-- Copyright (C) 2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,53 +13,21 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string-array name="wifi_countrycode_entries">
-      <item>Spojené státy</item>
-      <item>Kanada, Taiwan</item>
-      <item>Německo</item>
-      <item>Evropa</item>
-      <item>Japonsko, Rusko</item>
-      <item>Austrálie</item>
-      <item>Čína</item>
-      <item>Korea</item>
-      <item>Turecko</item>
-      <item>Singapur</item>
-      <item>Brazílie</item>
+    <string-array name="preferred_network_mode_choices_lte_gsm">
+        <item>LTE/WCDMA</item>
+        <item>LTE/GSM/WCDMA</item>
+        <item>Upřednostnit GSM/WCDMA</item>
     </string-array>
-    <string-array name="volume_overlay_entries">
-      <item>Jednoduchý</item>
-      <item>Rozšířitelný</item>
-      <item>Rozšířený</item>
-      <item>Žádný</item>
+    <string-array name="flip_action_setting_entries">
+        <item>Nedělat nic</item>
+        <item>Ztišit vyzvánění</item>
+        <item>Odmítnout hovor</item>
     </string-array>
-    <string-array name="pref_zram_size_entries">
-      <item>Zakázáno</item>
-      <item>10%</item>
-      <item>18% (výchozí)</item>
-      <item>26%</item>
-    </string-array>
-    <string-array name="profile_entries">
-      <item>Zapnuto</item>
-      <item>Vypnuto</item>
-      <item>Nepřehlížet</item>
-    </string-array>
-    <string-array name="profile_connection_entries">
-      <item>Zakázat</item>
-      <item>Povolit</item>
-    </string-array>
-    <string-array name="entries_flash_widget">
-      <item>Normální</item>
-      <item>Vysoký</item>
-    </string-array>
-    <string-array name="haptic_feedback_entries">
-      <item>Použít nastavení systému</item>
-      <item>Vypnout</item>
-      <item>Zapnout</item>
-    </string-array>
-    <string-array name="entries_status_bar_am_pm">
-      <item>Normální</item>
-      <item>Malé</item>
-      <item>Žádné</item>
+    <string-array name="flip_action_summary_entries">
+        <item>nic nestane</item>
+        <item>ztiší vyzvánění</item>
+        <item>odmítne hovor</item>
     </string-array>
 </resources>
