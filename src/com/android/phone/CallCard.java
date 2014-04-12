@@ -52,7 +52,6 @@ import com.android.internal.telephony.PhoneConstants;
 
 import java.util.List;
 
-import com.android.phone.location.PhoneLocation;
 
 /**
  * "Call card" UI element: the in-call screen contains a tiled layout of call
@@ -117,7 +116,6 @@ public class CallCard extends LinearLayout
     private TextView mElapsedTime;
 
     // Text colors, used for various labels / titles
-    private int mTextColorDefault;
     private int mTextColorCallTypeSip;
 
     // The main block of info about the "primary" or "active" call,
@@ -228,9 +226,7 @@ public class CallCard extends LinearLayout
         mElapsedTime = (TextView) findViewById(R.id.elapsedTime);
 
         // Text colors
-        Resources res = getResources();
-        mTextColorDefault = res.getColor(R.color.incall_call_banner_text_color);
-        mTextColorCallTypeSip = res.getColor(R.color.incall_callTypeSip);
+        mTextColorCallTypeSip = getResources().getColor(R.color.incall_callTypeSip);
 
         // "Caller info" area, including photo / name / phone numbers / etc
         mPhoto = (ImageView) findViewById(R.id.photo);
@@ -777,11 +773,7 @@ public class CallCard extends LinearLayout
 
             case DIALING:
             case ALERTING:
-                if (mApplication.notifier.isCallWaiting(call)) {
-                    callStateLabel = context.getString(R.string.card_title_dialing_waiting);
-                } else {
-                    callStateLabel = context.getString(R.string.card_title_dialing);
-                }
+                callStateLabel = context.getString(R.string.card_title_dialing);
                 break;
 
             case INCOMING:
@@ -815,7 +807,7 @@ public class CallCard extends LinearLayout
                 break;
         }
 
-        // Check a couple of other special cases
+        // Check a couple of other special cases (these are all CDMA-specific).
 
         if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
             if ((state == Call.State.ACTIVE)
@@ -826,12 +818,7 @@ public class CallCard extends LinearLayout
             } else if (PhoneGlobals.getInstance().notifier.getIsCdmaRedialCall()) {
                 callStateLabel = context.getString(R.string.card_title_redialing);
             }
-        } else if (phoneType == PhoneConstants.PHONE_TYPE_GSM) {
-            if (state == Call.State.ACTIVE && mApplication.notifier.isCallWaiting(call)) {
-                callStateLabel = context.getString(R.string.card_title_waiting_call);
-            }
         }
-
         if (PhoneUtils.isPhoneInEcm(phone)) {
             // In emergency callback mode (ECM), use a special label
             // that shows your own phone number.
@@ -1291,14 +1278,11 @@ public class CallCard extends LinearLayout
                         // TODO (CallerInfoAsyncQuery cleanup): Fix the CallerInfo
                         // query to only do the geoDescription lookup in the first
                         // place for incoming calls.
-                        // displayNumber = info.geoDescription;
-                        // may be null
-                        // So we use Location as Description;
-                        displayNumber = PhoneLocation.getCityFromPhone(number.replaceAll(" ", ""));
+                        displayNumber = info.geoDescription;  // may be null
                     }
 
                     if (DBG) log("  ==>  no name; falling back to number: displayName '"
-                                 + displayName + "', displayNumber '" + displayNumber + "'" + PhoneLocation.getCityFromPhone(number.replaceAll(" ", "")));
+                                 + displayName + "', displayNumber '" + displayNumber + "'");
                 }
             } else {
                 // We do have a valid "name" in the CallerInfo.  Display that
@@ -1355,26 +1339,15 @@ public class CallCard extends LinearLayout
             }
             mName.setVisibility(View.VISIBLE);
 
-            String location = null;
             if (displayNumber != null && !call.isGeneric()) {
-                if (mContext.getResources().getConfiguration().locale.getCountry().equals("CN") || mContext.getResources().getConfiguration().locale.getCountry().equals("TW")) {
-                    location = PhoneLocation.getCityFromPhone(displayNumber.replaceAll(" ", ""));
-                } else {
-                    location = label;
-                }
                 mPhoneNumber.setText(displayNumber);
                 mPhoneNumber.setVisibility(View.VISIBLE);
             } else {
-                if (mContext.getResources().getConfiguration().locale.getCountry().equals("CN") || mContext.getResources().getConfiguration().locale.getCountry().equals("TW")) {
-                    location = PhoneLocation.getCityFromPhone(displayName.replaceAll(" ", ""));
-                } else {
-                    location = label;
-                }
                 mPhoneNumber.setVisibility(View.GONE);
             }
 
-            if (location != null && !call.isGeneric()) {
-                mLabel.setText(location);
+            if (label != null && !call.isGeneric()) {
+                mLabel.setText(label);
                 mLabel.setVisibility(View.VISIBLE);
             } else {
                 mLabel.setVisibility(View.GONE);
@@ -1707,10 +1680,6 @@ public class CallCard extends LinearLayout
             //   mCallTypeLabel.setCompoundDrawablesWithIntrinsicBounds(
             //           callTypeSpecificBadge, null, null, null);
             //   mCallTypeLabel.setCompoundDrawablePadding((int) (mDensity * 6));
-        } else if (call != null && mApplication.notifier.isCallForwarded(call)) {
-            mCallTypeLabel.setVisibility(View.VISIBLE);
-            mCallTypeLabel.setText(R.string.incall_call_type_label_forwarded);
-            mCallTypeLabel.setTextColor(mTextColorDefault);
         } else {
             mCallTypeLabel.setVisibility(View.GONE);
         }

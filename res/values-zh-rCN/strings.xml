@@ -162,15 +162,14 @@
     <string name="preferred_network_mode_wcdma_perf_summary" msgid="8521677230113533809">"首选网络模式：首选 WCDMA"</string>
     <string name="preferred_network_mode_gsm_only_summary" msgid="3352445413437453511">"首选网络模式：仅限 GSM"</string>
     <string name="preferred_network_mode_wcdma_only_summary" msgid="2836897236221063413">"首选网络模式：仅限 WCDMA"</string>
-    <string name="preferred_network_mode_gsm_wcdma_summary" msgid="3161255745326408587">"首选网络模式：GSM / WCDMA"</string>
+    <string name="preferred_network_mode_gsm_wcdma_summary" msgid="3161255745326408587">"首选网络模式：GSM/WCDMA"</string>
     <string name="preferred_network_mode_cdma_summary" msgid="3175690187294334241">"首选网络模式：CDMA"</string>
-    <string name="preferred_network_mode_cdma_evdo_summary" msgid="8332063064712726618">"首选网络模式：CDMA / EvDo"</string>
+    <string name="preferred_network_mode_cdma_evdo_summary" msgid="8332063064712726618">"首选网络模式：CDMA/EvDo"</string>
     <string name="preferred_network_mode_cdma_only_summary" msgid="1309770926198634150">"首选网络模式：仅限 CDMA"</string>
     <string name="preferred_network_mode_evdo_only_summary" msgid="8472220691721269155">"首选网络模式：仅限 EvDo"</string>
-    <string name="preferred_network_mode_lte_cdma_summary" msgid="3722647806454528426">"首选网络模式：LTE / CDMA"</string>
-
+    <string name="preferred_network_mode_lte_cdma_summary" msgid="3722647806454528426">"首选网络模式：LTE/CDMA"</string>
   <string-array name="preferred_network_mode_choices">
-    <item msgid="5543794538185064048">"全球"</item>
+    <item msgid="5543794538185064048">"LTE/CDMA"</item>
     <item msgid="3273348576277144124">"仅 EvDo"</item>
     <item msgid="454610224530856274">"CDMA，无 EvDo 功能"</item>
     <item msgid="648505122852496166">"CDMA/EvDo 自动选择"</item>
@@ -180,11 +179,8 @@
     <item msgid="8508331239546115206">"首选 GSM/WCDMA"</item>
   </string-array>
   <string-array name="preferred_network_mode_choices_lte">
-    <!--<item>仅 LTE</item>-->
-        <item>LTE/CMDA/EvDo/GSM/WCDMA</item>
-        <item>LTE/CDMA/EvDo</item>
     <item msgid="7002474529872452266">"LTE/CDMA"</item>
-    <item msgid="5541716989029928208">"CDMA/EvDo 自动选择"</item>
+    <item msgid="5541716989029928208">"CDMA"</item>
   </string-array>
     <string name="data_enabled" msgid="5972538663568715366">"启用数据网络"</string>
     <string name="data_enable_summary" msgid="5022018967714633874">"允许通过移动网络存取数据"</string>
@@ -508,6 +504,9 @@
     <string name="voicemail_settings" msgid="72448049107749316">"设置"</string>
     <string name="voicemail_number_not_set" msgid="6724904736891087856">"&lt;未设置&gt;"</string>
     <string name="other_settings" msgid="3672912580359716394">"其他通话设置"</string>
+    <string name="dial_button_label">拨号器</string>
+    <string name="dialer_ui_settings_title">拨号器设置</string>
+    <string name="dialer_ui_settings_summary">对拨号器进行设置</string>
     <string name="calling_via_template" msgid="4839419581866928142">"通过<xliff:g id="PROVIDER_NAME">%s</xliff:g>进行通话"</string>
     <string name="contactPhoto" msgid="4713193418046639466">"联系人照片"</string>
     <string name="goPrivate" msgid="865837794424530980">"私聊"</string>
